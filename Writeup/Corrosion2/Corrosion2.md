@@ -27,7 +27,7 @@ PORT     STATE SERVICE REASON         VERSION
 
 ### First look of website.
 
-![Website First look ](/VulnHub-Machines/Writeup/Corrosion2/img/website.png)
+![Website First look](./img/website.png)
 
 ### Hidden Directory
 

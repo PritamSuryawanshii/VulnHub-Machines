@@ -20,14 +20,14 @@ This repo contains my personal collection of VulnHub machine write-ups. Each fol
 
 | #  | Machine           | Difficulty     | Highlights                          | Flags         | Write-up          |
 |----|-------------------|----------------|-------------------------------------|---------------|-------------------|
-| 01 | Empire: LupinOne  | 🟡 Easy-Medium | SSH Key discovery, Base58, pip privesc | user, root    | Empire-LupinOne   |
+| 01 | Empire: LupinOne  | 🟡 Easy        | SSH Key discovery, Base58, pip privesc | user, root    | Empire-LupinOne   |
 | 02 | Corrosion: 2      | 🟠 Medium      | NFS misconfig, CVE-2021-4034 (pwnkit), shadow cracking | user, root | Corrosion-2       |
-| 03 | DarkHole V2       | 🔴 Hard        | LFI to RCE chain, custom SUID binary, kernel exploit | user, root | DarkHole-V2       |
+| 03 | DarkHole V2       | 🟡 Easy        | LFI to RCE chain, custom SUID binary | user, root | DarkHole-V2       |
 | 04 | DC: 7             | 🟡 Easy        | Drupal 7 RCE (Drupalgeddon2), weak creds | user, root    | DC-7              |
 
 ---
 
-## 🖋️ Empire: LupinOne (Easy‑Medium)
+## 🖋️ Empire: LupinOne (Easy)
 
 - **Ports**: 22 (SSH), 80 (HTTP)  
 - **Enum**: Hidden dir `/~secret/`, Base58 key  
@@ -39,20 +39,20 @@ This repo contains my personal collection of VulnHub machine write-ups. Each fol
 
 ## 🖋️ Corrosion: 2 (Medium)
 
-- **Ports**: 21 (FTP), 2049 (NFS), 80 (HTTP)
-- **Enum**: Anonymous NFS mount reveals SSH keys and shadow file  
+- **Ports**: 22 (SSH), 8080 (HTTP), 80 (HTTP)
+- **Enum**: Hidden ZIP file with set passsword   
 - **Access**: Cracked password from shadow dump via John the Ripper  
-- **Privesc**: Exploited `CVE-2021-4034` (Polkit - pwnkit)  
+- **Privesc**: Analyzed and exploited look custom SUID binary  
 - **Flags**: `user.txt`, `root.txt`
 
 ---
 
-## 🖋️ DarkHole V2 (Hard)
+## 🖋️ DarkHole V2 (Easy)
 
-- **Ports**: 80 (HTTP), 443 (HTTPS)  
-- **Enum**: LFI via vulnerable PHP endpoint, log poisoning  
+- **Ports**: 80 (HTTP), 22 (SSH)  
+- **Enum**: RCE via vulnerable PHP endpoint, 
 - **Access**: Reverse shell through crafted access log injection  
-- **Privesc**: Analyzed and exploited custom SUID binary, kernel escalation via dirty pipe variant  
+- **Privesc**: Analyzed and exploited custom SUID binary
 - **Flags**: `user.txt`, `root.txt`
 
 ---
@@ -60,7 +60,7 @@ This repo contains my personal collection of VulnHub machine write-ups. Each fol
 ## 🖋️ DC: 7 (Easy)
 
 - **Ports**: 80 (HTTP), 22 (SSH)  
-- **Enum**: Found Drupal CMS, vulnerable to Drupalgeddon2 (CVE-2018-7600)  
-- **Access**: Remote code execution through exploit, weak SSH creds  
-- **Privesc**: sudo access with no password for user scripts  
+- **Enum**: Found Drupal CMS, 
+- **Access**: change drush shell password   
+- **Privesc**: install malicious RCE php code 
 - **Flags**: `user.txt`, `root.txt`

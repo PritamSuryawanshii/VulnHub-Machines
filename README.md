@@ -1,74 +1,54 @@
-# 🛡️ VulnHub Machines — My Walkthrough Archive
+# 🛡️ VulnHub Machines — Walkthrough Archive
+
+Welcome to my personal collection of **VulnHub** machine walkthroughs. This repository documents my approach to solving vulnerable machines, focusing on **enumeration**, **exploitation**, and **privilege escalation** techniques — ideal for OSCP-style practice.
 
 ---
 
-🔍 **Why this repo?**
+## 🔍 Why This Repo?
 
-This repo contains my personal collection of VulnHub machine write-ups. Each folder includes my process and solutions to help others learn enumeration, exploitation, and privilege escalation.
-
----
-
-## 📁 Machines Covered
-
-| #  | Machine           | Difficulty     | Highlights                                                   | Flags      | Write-up                                                                                                                      |
-| -- | ----------------- | -------------- | ------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| 01 | Empire: LupinOne  | 🟡 Easy-Medium | SSH Key discovery, Base58, pip privesc                       | user, root | Empire-LupinOne                                                                                                               |
-| 02 | Corrosion: 2      | 🟠 Medium      | NFS misconfig, CVE-2021-4034 (pwnkit), shadow cracking       | user, root | Corrosion-2                                                                                                                   |
-| 03 | DC: 7             | 🟡 Easy-Medium | Drupalgeddon2, local file inclusion, MySQL password reuse    | user, root | DC-7                                                                                                                          |
-| 04 | DarkHole: V2      | 🟠 Medium      | Misconfigured services, password reuse, sudo privilege abuse | user, root | DarkHole-V2                                                                                                                   |
-| 05 | Hacker Kid: 1.0.1 | 🟢 Easy        | ptrace abuse, SUID binary, hardcoded creds, reverse shell    | user, root | [Hacker Kid-1.0.1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Hacker-kid/Hacker%20Kid-1.0.1.md) |
+This archive is a learning resource to:
+- Practice and refine penetration testing techniques
+- Share write-ups with others preparing for exams or CTFs
+- Document successful exploits and privilege escalation paths
 
 ---
 
-## 🖋️ Empire: LupinOne (Easy‑Medium)
+## 📁 Covered Machines
 
-* **Ports**: 22 (SSH), 80 (HTTP)
-* **Enum**: Hidden dir `/~secret/`, Base58 key
-* **Access**: SSH with cracked private key
-* **Privesc**: `pip` hijacking for root access
-* **Flags**: `user.txt`, `root.txt`
-
----
-
-## 🖋️ Corrosion: 2 (Medium)
-
-* **Ports**: 21 (FTP), 2049 (NFS), 80 (HTTP)
-* **Enum**: Anonymous NFS mount reveals SSH keys and shadow file
-* **Access**: Cracked password from shadow dump via John the Ripper
-* **Privesc**: Exploited `CVE-2021-4034` (Polkit - pwnkit)
-* **Flags**: `user.txt`, `root.txt`
+| #  | Machine Name       | Difficulty     | Key Techniques Used                                             | Flags       | Write-up Link                                                                                                                |
+|----|--------------------|----------------|------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------|
+| 01 | Empire: LupinOne   | 🟡 Easy-Medium | SSH key discovery, Base58 decoding, `pip` privilege escalation   | user, root  | Empire-LupinOne                                                                                                              |
+| 02 | Corrosion: 2       | 🟠 Medium      | NFS misconfiguration, shadow cracking, `pwnkit` (CVE-2021-4034) | user, root  | Corrosion-2                                                                                                                  |
+| 03 | DC: 7              | 🟡 Easy-Medium | Drupalgeddon2, MySQL password reuse, LFI                         | user, root  | DC-7                                                                                                                         |
+| 04 | DarkHole: V2       | 🟠 Medium      | Reused credentials, sudo abuse                                  | user, root  | DarkHole-V2                                                                                                                  |
+| 05 | Hacker Kid: 1.0.1  | 🟢 Easy        | SUID binary, hardcoded credentials, `ptrace` abuse              | user, root  | [Hacker Kid-1.0.1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Hacker-kid/Hacker%20Kid-1.0.1.md) |
 
 ---
 
-## 🖋️ DC: 7 (Easy‑Medium)
+## ⚔️ Key Techniques Used
 
-* **Ports**: 80 (HTTP), 3306 (MySQL)
-* **Enum**: Drupal CMS, exploit Drupalgeddon2 (CVE-2018-7600)
-* **Access**: Reused MySQL password for user shell
-* **Privesc**: Abuse of LFI to read sensitive configs
-* **Flags**: `user.txt`, `root.txt`
+This repo explores a wide range of real-world offensive security skills:
 
----
+- 🔎 **Enumeration**
+  - Hidden directories & credentials
+  - NFS/FTP misconfigurations
+  - Drupal vulnerabilities (e.g., Drupalgeddon2)
 
-## 🖋️ DarkHole: V2 (Medium)
+- 🛠️ **Initial Access**
+  - Cracked private SSH keys
+  - CMS exploitation
+  - Reverse shell via injection
 
-* **Ports**: 22 (SSH), 80 (HTTP)
-* **Enum**: Discovered reused passwords via password spraying
-* **Access**: Weak credentials on login
-* **Privesc**: Exploited sudo permission misconfiguration
-* **Flags**: `user.txt`, `root.txt`
-
----
-
-## 🖋️ Hacker Kid: 1.0.1 (Medium)
-
-* **Ports**: 52 (DNS), 80 (HTTP), 9999 (HTTP)
-* **Enum**: Web-based enumeration, the name parameter is vulnerable to injection attack
-* **Access**: Used reverse shell to gain user shell
-* **Privesc**: Used `ptrace` and SUID binary for privilege escalation
+- 🚀 **Privilege Escalation**
+  - SUID binary exploitation
+  - `pip` and `sudo` misconfigurations
+  - Kernel/local exploits like `pwnkit`
+  - Abuse of `ptrace` and hardcoded creds
 
 ---
 
-## 📜 License
+## ⚖️ License & Disclaimer
 
-This repository is for educational and research purposes only. All content is created from publicly available vulnerable machines.
+This repository is intended for **educational and research purposes only**. All walkthroughs are based on publicly available machines hosted on [VulnHub](https://www.vulnhub.com). Please use responsibly.
+
+---

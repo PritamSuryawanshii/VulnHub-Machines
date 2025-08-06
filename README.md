@@ -20,7 +20,7 @@ This archive is a learning resource to:
 | 01 | Empire: LupinOne   | 🟡 Easy-Medium | SSH key discovery, Base58 decoding, `pip` privilege escalation   | user, root  | Empire-LupinOne                                                                                                              |
 | 02 | Corrosion: 2       | 🟠 Medium      | NFS misconfiguration, shadow cracking, `pwnkit` (CVE-2021-4034) | user, root  | Corrosion-2                                                                                                                  |
 | 03 | DC: 7              | 🟡 Easy-Medium | Drupalgeddon2, MySQL password reuse, LFI                         | user, root  | DC-7                                                                                                                         |
-| 04 | DarkHole: V2       | 🟠 Medium      | Reused credentials, sudo abuse                                  | user, root  | [DarkHole-V2](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/DarkHole-V2/DarkHole-V2.md)                                                                                                                  |
+| 04 | DarkHole: V2       | 🟢 Easy      | Reused credentials, sudo abuse                                  | user, root  | [DarkHole-V2](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/DarkHole-V2/DarkHole-V2.md)                                                                                                                  |
 | 05 | Hacker Kid: 1.0.1  | 🟠 Medium        | SUID binary, hardcoded credentials, `ptrace` abuse              | user, root  | [Hacker Kid-1.0.1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Hacker-kid/Hacker%20Kid-1.0.1.md) |
 
 ---

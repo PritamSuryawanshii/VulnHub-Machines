@@ -23,6 +23,7 @@ This archive is a learning resource to:
 | 04 | DarkHole: V2       | 🟢 Easy      | Reused credentials, sudo abuse                                  | user, root  | [DarkHole-V2](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/DarkHole-V2/DarkHole-V2.md)                                                                                                                  |
 | 05 | Hacker Kid: 1.0.1  | 🟠 Medium        | SUID binary, hardcoded credentials, `ptrace` abuse              | user, root  | [Hacker Kid-1.0.1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Hacker-kid/Hacker%20Kid-1.0.1.md) |
 | 06 | DC: 9   | 🟠 Medium | SQL Injection, port knocking, LFI,    | user, root  | [Empire-LupinOne](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Empire-LupinOne/Empire%20LupinOne.md) 
+| 07 | W34kn3ss: 1   | 🟠 Medium | Hidden directory, vulnerable openssl, compile python script     | user, root  | [W34kn3ss-1]()
 
 ---
 

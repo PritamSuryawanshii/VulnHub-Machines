@@ -24,6 +24,7 @@ This archive is a learning resource to:
 | 05 | Hacker Kid: 1.0.1  | 🟠 Medium        | SUID binary, hardcoded credentials, `ptrace` abuse              | user, root  | [Hacker Kid-1.0.1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Hacker-kid/Hacker%20Kid-1.0.1.md) |
 | 06 | DC: 9   | 🟠 Medium | SQL Injection, port knocking, LFI,    | user, root  | [Empire-LupinOne](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Empire-LupinOne/Empire%20LupinOne.md) 
 | 07 | W34kn3ss: 1   | 🟠 Medium | Hidden directory, vulnerable openssl, compile python script     | user, root  | [W34kn3ss-1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/W34kn3ss-1/W34KN3SS-1.md)
+| 08 | Cereal:1   | 🟠 Medium |   PHP Object Injection, pspy help us find the root has a script running, create symbolic-link for root access   | local, proof  | [cereal-1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/W34kn3ss-1/cereal-1.md)
 
 ---
 
@@ -40,12 +41,14 @@ This repo explores a wide range of real-world offensive security skills:
   - Cracked private SSH keys
   - CMS exploitation
   - Reverse shell via injection
+  - PHP Object Injection
 
 - 🚀 **Privilege Escalation**
   - SUID binary exploitation
   - `pip` and `sudo` misconfigurations
   - Kernel/local exploits like `pwnkit`
   - Abuse of `ptrace` and hardcoded creds
+  - use symbolic link for root access
 
 ---
 

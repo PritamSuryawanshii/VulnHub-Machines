@@ -233,7 +233,7 @@ echo root::0:0:root:/root/bin/bash >> /home/rocky/public_html/passwds
 > **Note: Ensure the shell is stabilized to avoid issues during execution.**
 > 
 > 
-> https://hacktricks.boitatech.com.br/shells/shells/full-ttys → python is available.
+> https://hacktricks.boitatech.com.br/shells/shells/full-ttys → python is not available.
 > 
 
 ```bash

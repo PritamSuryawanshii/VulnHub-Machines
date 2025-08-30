@@ -25,7 +25,7 @@ This archive is a learning resource to:
 | 06 | DC: 9   | 🟠 Medium | SQL Injection, port knocking, LFI,    | user, root  | [Empire-LupinOne](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/Empire-LupinOne/Empire%20LupinOne.md) 
 | 07 | W34kn3ss: 1   | 🟠 Medium | Hidden directory, vulnerable openssl, compile python script     | user, root  | [W34kn3ss-1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/W34kn3ss-1/W34KN3SS-1.md)
 | 08 | Cereal:1   | 🟠 Medium |   PHP Object Injection, pspy help us find the root has a script running, create symbolic-link for root access   | local, proof  | [cereal-1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/W34kn3ss-1/cereal-1.md)
-
+| 09 | GoldenEye:1   | 🟠 Medium |   POP3 Enumeration, Hidden password in image, Vulnerable Version, Linux Version is Vulnerable  | root  | [GoldenEye-1](https://github.com/PritamSuryawanshii/VulnHub-Machines/blob/main/Writeup/W34kn3ss-1/cereal-1.md)
 ---
 
 ## ⚔️ Key Techniques Used
